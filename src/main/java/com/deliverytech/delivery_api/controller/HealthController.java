@@ -24,12 +24,11 @@ public class HealthController {
       return new AppInfo(
               "Delivery Tech API",
               "1.0.0",
-              "[William Rodrigues]",
+              "William Rodrigues",
               "JDK 21",
-              "Spring Boot 3.2.x"
+              "Spring Boot"
       );
     }
-    //Record para demonstrar recuso do Java 14+ ou 21.
     public record AppInfo(
         String application,
         String version,
