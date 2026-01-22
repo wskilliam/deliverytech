@@ -12,7 +12,8 @@ import java.util.List;
 
 @Repository
 public interface PedidoRepository extends JpaRepository<Pedido, Long> {
-    List<Pedido> findByClientId(Long clienteId);
+    List<Pedido> findByClienteId(Long clienteId);
+
     List<Pedido> findByStatus(StatusPedidos status); //filtra por status do pedido pelo enum StatusPedidos
     @Query("""
         SELECT p FROM Pedido p //seleciona pedido p

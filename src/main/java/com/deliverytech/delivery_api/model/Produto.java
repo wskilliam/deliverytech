@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -18,9 +17,9 @@ public class Produto {
 
     private String nome;
 
-    private String categoria;
-
     private String descricao;
+
+    private String categoria;
 
     private BigDecimal preco;
 
@@ -29,7 +28,5 @@ public class Produto {
     @ManyToOne(fetch = FetchType.LAZY) //fetch lazy para carregar sob demanda
     @JoinColumn(name = "restaurante_id") // Chave estrangeira para a tabela restaurantes
     private Restaurante restaurante;
-
-
 
 }

@@ -9,6 +9,11 @@ import java.util.List;
 @Repository
 public interface RestauranteRepository extends JpaRepository<Restaurante, Long> {
     List<Restaurante> findByAtivoTrue();
-    List<Restaurante> findByCategory(String categoria);
+
+    List<Restaurante> findByCategoriaAndAtivoTrue(String categoria);
+
     List<Restaurante> findByAtivoTrueOrderByRatingDesc();
+
+    List<Restaurante> findByNomeContainingIgnoreCase(String nome);
+
 }

@@ -1,14 +1,20 @@
 package com.deliverytech.delivery_api.repository;
 
-import com.deliverytech.delivery_api.model.Produto;
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import com.deliverytech.delivery_api.model.Produto;
 
 @Repository
-public interface ProdutoRepository extends JpaRepository<ProdutoRepository, Long> {
-    List<Produto> findByRestaurantId(Long restauranteId); //filtra por restaurante
-    List<Produto> findyByCategory(String categoria); //filtra por categoria
-    List<Produto> findByAvailableTrue(); //filtra por disponivel
+public interface ProdutoRepository extends JpaRepository<Produto, Long>{
+    List<Produto> findByRestauranteId(Long restauranteId);
+
+    List<Produto> findByCategoria(String categoria);
+
+    List<Produto> findByDisponivelTrue();
+
+    List<Produto> findByRestauranteIdAndDisponivelTrue(Long restauranteId);
+
 }
