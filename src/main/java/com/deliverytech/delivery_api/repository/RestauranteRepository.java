@@ -12,7 +12,8 @@ public interface RestauranteRepository extends JpaRepository<Restaurante, Long> 
 
     List<Restaurante> findByCategoriaAndAtivoTrue(String categoria);
 
-    List<Restaurante> findByAtivoTrueOrderByRatingDesc();
+    // Ordena por avaliacao desc
+    List<Restaurante> findByAtivoTrueOrderByAvaliacaoDesc();
 
     List<Restaurante> findByNomeContainingIgnoreCase(String nome);
 

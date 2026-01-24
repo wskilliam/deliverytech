@@ -1,5 +1,6 @@
 package com.deliverytech.delivery_api.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -31,7 +32,8 @@ public class Cliente { // Classe de modelo para Cliente
 
     private boolean ativo; // Status do cliente (ativo/inativo)
 
-    @OneToMany(mappedBy = "clientes") // Relacionamento com pedidos
+    @OneToMany(mappedBy = "cliente") // Relacionamento com pedidos
+    @JsonIgnore
     private List<Pedido> pedidos = new ArrayList<>(); // Lista de pedidos do cliente
 
     /* Sem Lombok */

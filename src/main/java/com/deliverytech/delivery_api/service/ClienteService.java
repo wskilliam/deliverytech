@@ -44,7 +44,7 @@ public class ClienteService {
             cliente.setEndereco(dadosAtualizados.getEndereco());
             return repository.save(cliente);
     }
-    public void desativadar(Long id){
+    public void desativar(Long id){
         Cliente cliente = buscarPorId(id);
         cliente.setAtivo(false);
         repository.save(cliente);

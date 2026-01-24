@@ -46,6 +46,6 @@ public class Pedido {
     @JoinColumn(name = "restaurante_id") // Chave estrangeira para a tabela restaurantes
     private Restaurante restaurante;
 
-    @OneToMany(mappedBy = "pedidos")
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ItemPedido> itens = new ArrayList<>();
 }
