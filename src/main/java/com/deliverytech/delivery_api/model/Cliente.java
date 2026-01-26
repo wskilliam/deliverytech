@@ -40,5 +40,9 @@ public class Cliente { // Classe de modelo para Cliente
 
     // Getters e Setters gerado pelo Lombok, mas aqui estão para referência
 
+    @PrePersist
+    public void prePersist(){
+        this.dataCadastro = LocalDateTime.now();
+    }
 }
 

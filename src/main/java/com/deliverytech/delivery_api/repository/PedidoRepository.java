@@ -3,6 +3,7 @@ package com.deliverytech.delivery_api.repository;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.deliverytech.delivery_api.dto.TotalVendasPorRestauranteDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -25,4 +26,16 @@ public interface PedidoRepository extends JpaRepository<Pedido, Long> {
             @Param("inicio") LocalDateTime inicio,
             @Param("fim") LocalDateTime fim
     );
+
+    @Query("""
+            select com.deliverytech.delivery_api.dto.TotalVendasPorRestauranteDTO( 
+                r.NOME,
+                coalesce(sum(ip.subtotal), 0) as total_por_restaurante
+            )
+            from RESTAURANTES r
+            join PEDIDOS p on p.RESTAURANTE_ID = r.ID
+            join ITENS_PEDIDO ip on ip.PEDIDO_ID = p.ID
+            group by r.NOME;
+            """ )
+            List<TotalVendasPorRestauranteDTO> totalVendasPorRestaurante();
 }
