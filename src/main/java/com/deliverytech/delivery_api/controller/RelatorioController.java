@@ -23,4 +23,8 @@ public class RelatorioController {
         return service.totalVendasPorRestaurante();
     }
 
+    @GetMapping("/ranking-clientes")
+    public List<Object[]> rankingClientes(){
+        return service.rankingClientes();
+    }
 }

@@ -8,6 +8,7 @@ import com.deliverytech.delivery_api.dto.TotalVendasPorRestauranteDTO;
 import com.deliverytech.delivery_api.repository.PedidoRepository;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Service
 @RequiredArgsConstructor
@@ -16,5 +17,9 @@ public class RelatorioService {
 
     public List<TotalVendasPorRestauranteDTO> totalVendasPorRestaurante(){
         return respository.totalVendasPorRestaurante();
+    }
+
+    public List<Object[]> rankingClientes(){
+        return respository.rankingClientes();
     }
 }
