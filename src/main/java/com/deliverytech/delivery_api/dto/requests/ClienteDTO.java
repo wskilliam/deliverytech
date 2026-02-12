@@ -4,7 +4,11 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 //DTOs Cliente recebem os dados do cliente, como nome, email, telefone, etc.
 // Eles são usados para transferir dados entre as camadas da aplicação,
 // como entre o controlador e o serviço. O DTO ajuda a encapsular os dados e a
