@@ -12,5 +12,10 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
     }
 
+    @ExceptionHandler(BusinessException.class)
+        public ResponseEntity<String> handleBusiness(BusinessException ex){
+            return ResponseEntity.badRequest().body(ex.getMessage());
+    }
+
 
 }
